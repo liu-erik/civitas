@@ -25,7 +25,7 @@ class Source(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    question: str = Field(..., max_length=500)
+    question: str = Field(..., min_length=1, max_length=500)
     language_code: str = Field(..., min_length=2, max_length=10)
 
     @field_validator("question", mode="before")
