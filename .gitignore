@@ -16,3 +16,9 @@ frontend/dist
 # Editors
 .cursor
 .vscode
+
+#.md
+CLAUDE.md
+PRD.md
+DESIGN.md
+TECHSTACK.md
