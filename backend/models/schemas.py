@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -115,3 +115,11 @@ class TopicExplanationOut(BaseModel):
     what_it_is: str | None = None
     why_it_matters: str | None = None
     what_you_can_do: str | None = None
+
+
+class LocalDataOut(BaseModel):
+    id: str
+    type: Literal["representative", "organization", "event"]
+    city: str | None = None
+    state: str | None = None
+    data: dict[str, Any] = Field(default_factory=dict)
