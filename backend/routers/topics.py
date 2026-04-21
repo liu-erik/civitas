@@ -23,7 +23,7 @@ async def list_categories(
     except KeyError:
         raise HTTPException(
             status_code=503,
-            detail="Database is not configured (SUPABASE_URL / SUPABASE_SERVICE_KEY).",
+            detail="Database is not configured (SUPABASE_URL and SUPABASE_SERVICE_KEY or SUPABASE_SERVICE_ROLE_KEY).",
         ) from None
     try:
         return topics_repository.list_categories(client, strip_html(lang))
@@ -50,7 +50,7 @@ async def list_topics(
     except KeyError:
         raise HTTPException(
             status_code=503,
-            detail="Database is not configured (SUPABASE_URL / SUPABASE_SERVICE_KEY).",
+            detail="Database is not configured (SUPABASE_URL and SUPABASE_SERVICE_KEY or SUPABASE_SERVICE_ROLE_KEY).",
         ) from None
     try:
         rows = topics_repository.list_topics_for_category(
@@ -84,7 +84,7 @@ async def get_topic_explanation(
     except KeyError:
         raise HTTPException(
             status_code=503,
-            detail="Database is not configured (SUPABASE_URL / SUPABASE_SERVICE_KEY).",
+            detail="Database is not configured (SUPABASE_URL and SUPABASE_SERVICE_KEY or SUPABASE_SERVICE_ROLE_KEY).",
         ) from None
     lang_clean = strip_html(lang)
     try:

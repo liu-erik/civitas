@@ -26,7 +26,7 @@ async def post_chat(request: Request, body: ChatRequest) -> ChatResponseBody:
     except KeyError:
         raise HTTPException(
             status_code=503,
-            detail="Database is not configured (SUPABASE_URL / SUPABASE_SERVICE_KEY).",
+            detail="Database is not configured (SUPABASE_URL and SUPABASE_SERVICE_KEY or SUPABASE_SERVICE_ROLE_KEY).",
         ) from None
 
     qhash = cache_service.chat_question_hash(body.question, body.language_code)

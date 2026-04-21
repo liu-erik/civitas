@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import logging
+
 from supabase import Client
 
 from models.schemas import LocalDataOut
+
+logger = logging.getLogger(__name__)
 
 
 def list_local_for_city_state(
@@ -13,16 +17,24 @@ def list_local_for_city_state(
     if not city_q or not state_q:
         return []
 
+    # PostgREST expects lowercase boolean literals. Using Python True produces
+    # `active=eq.True` which does not match boolean `true` rows.
     r = (
         client.table("local_data")
         .select("id, type, city, state, data")
-        .eq("active", True)
+        .is_("active", "true")
         .ilike("city", city_q)
         .ilike("state", state_q)
-        .order("type")
+        .order("created_at")
         .execute()
     )
     rows = r.data or []
+    if not rows:
+        logger.debug(
+            "local_data query returned 0 rows for city=%r state=%r",
+            city_q,
+            state_q,
+        )
     out: list[LocalDataOut] = []
     for row in rows:
         t = str(row.get("type") or "")
