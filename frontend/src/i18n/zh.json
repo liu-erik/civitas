@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "mainNav": "主导航",
+    "home": "首页",
+    "topics": "主题",
+    "rights": "权利",
+    "getInvolved": "参与",
+    "politics": "时政",
+    "settings": "设置",
+    "login": "登录",
+    "openSettings": "打开设置"
+  },
+  "common": {
+    "appName": "Civitas"
+  },
+  "language": {
+    "menuLabel": "语言",
+    "searchPlaceholder": "搜索语言"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "pages": {
+    "topics": {
+      "title": "主题",
+      "placeholder": "按类别浏览公民教育主题。内容将显示在此处。",
+      "intro": "选择一个类别，查看可用您语言阅读的主题简介。",
+      "browseCategory": "浏览主题",
+      "topicCount": "{{count}} 个主题",
+      "loadingCategories": "正在加载类别…",
+      "loadCategoriesError": "无法加载类别。请确认 API 已启动。",
+      "loadingTopics": "正在加载主题…",
+      "loadTopicsError": "无法加载该类别的主题。",
+      "categoryNotFound": "未找到该类别。",
+      "backToCategories": "所有类别",
+      "backToTopics": "返回主题列表",
+      "loadingTopic": "正在加载主题…",
+      "loadTopicError": "无法加载该主题。",
+      "topicNotFound": "未找到该主题。",
+      "unexpectedState": "出现问题。请从菜单返回“主题”。",
+      "sectionWhatItIs": "是什么",
+      "sectionWhyItMatters": "为什么重要",
+      "sectionWhatYouCanDo": "您可以做什么"
+    },
+    "rights": {
+      "title": "权利",
+      "placeholder": "了解您的权利。内容将显示在此处。"
+    },
+    "getInvolved": {
+      "title": "参与",
+      "placeholder": "本地代表、组织和活动将显示在此处。",
+      "intro": "使用您的位置或选择示例城市，查看数据库中的本地信息。",
+      "locationHeading": "您的地区",
+      "locationHint": "分享位置以查看附近列表，或在下方选择城市。",
+      "useMyLocation": "使用我的位置",
+      "locating": "正在定位…",
+      "loadingListings": "正在加载本地列表…",
+      "loadError": "无法加载本地列表。请稍后再试。",
+      "pickLocation": "选择地区以查看代表、组织和活动。",
+      "noListings": "尚未找到 {{city}}（{{state}}）的列表。"
+    },
+    "politics": {
+      "title": "时政",
+      "placeholder": "当前议题与中立的解读将显示在此处。"
+    },
+    "settings": {
+      "title": "设置",
+      "placeholder": "账户与偏好将显示在此处。",
+      "intro": "创建账户以在阅读主题时保存进度（存储在 Supabase）。",
+      "supabaseMissing": "未配置 Supabase。请在前端环境中添加 VITE_SUPABASE_URL 与 VITE_SUPABASE_ANON_KEY。",
+      "loadingAuth": "正在检查会话…",
+      "email": "邮箱",
+      "password": "密码",
+      "signIn": "登录",
+      "signUp": "注册账户",
+      "signOut": "退出登录",
+      "signedInAs": "已登录：{{email}}",
+      "signedIn": "登录成功。",
+      "signedOut": "已退出登录。",
+      "checkEmail": "如项目需要，请查收邮件以确认账户。"
+    }
+  },
+  "home": {
+    "greeting": {
+      "morning": "早上好",
+      "afternoon": "下午好",
+      "evening": "晚上好"
+    },
+    "tagline": "今天 Civitas 可以如何帮助您？",
+    "chatPlaceholder": "请输入您的公民教育问题…",
+    "send": "发送",
+    "suggestedIntro": "您也可以试试这些问题",
+    "questions": {
+      "q1": "警察拦下我时我有哪些权利？",
+      "q2": "我如何在居住地登记投票？",
+      "q3": "我的市议会议员是谁？",
+      "q4": "作为租客我有哪些权利？",
+      "q5": "如何参加市议会会议？",
+      "q6": "当前主要的政治议题有哪些？"
+    }
+  },
+  "chat": {
+    "sourceLink": "打开文章",
+    "assistantLabel": "Civitas",
+    "errorGeneric": "出了点问题，请稍后再试。",
+    "rateLimited": "请求过于频繁，请等待 {{seconds}} 秒后再试。",
+    "rateLimitedGeneric": "请求过于频繁，请稍等片刻后再试。"
+  }
+}

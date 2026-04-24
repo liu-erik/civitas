@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "mainNav": "Navegación principal",
+    "home": "Inicio",
+    "topics": "Temas",
+    "rights": "Derechos",
+    "getInvolved": "Participar",
+    "politics": "Política",
+    "settings": "Ajustes",
+    "login": "Iniciar sesión",
+    "openSettings": "Abrir ajustes"
+  },
+  "common": {
+    "appName": "Civitas"
+  },
+  "language": {
+    "menuLabel": "Idioma",
+    "searchPlaceholder": "Buscar idiomas"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "pages": {
+    "topics": {
+      "title": "Temas",
+      "placeholder": "Explore temas cívicos por categoría. El contenido aparecerá aquí.",
+      "intro": "Elija una categoría para ver lecciones breves en su idioma.",
+      "browseCategory": "Ver temas",
+      "topicCount": "{{count}} temas",
+      "loadingCategories": "Cargando categorías…",
+      "loadCategoriesError": "No se pudieron cargar las categorías. Compruebe que la API esté en ejecución.",
+      "loadingTopics": "Cargando temas…",
+      "loadTopicsError": "No se pudieron cargar los temas de esta categoría.",
+      "categoryNotFound": "No se encontró esa categoría.",
+      "backToCategories": "Todas las categorías",
+      "backToTopics": "Volver a la lista de temas",
+      "loadingTopic": "Cargando tema…",
+      "loadTopicError": "No se pudo cargar este tema.",
+      "topicNotFound": "Tema no encontrado.",
+      "unexpectedState": "Algo salió mal. Vuelva a Temas desde el menú.",
+      "sectionWhatItIs": "Qué es",
+      "sectionWhyItMatters": "Por qué importa",
+      "sectionWhatYouCanDo": "Qué puede hacer"
+    },
+    "rights": {
+      "title": "Derechos",
+      "placeholder": "Conozca sus derechos. El contenido aparecerá aquí."
+    },
+    "getInvolved": {
+      "title": "Participar",
+      "placeholder": "Representantes locales, organizaciones y eventos aparecerán aquí.",
+      "intro": "Use su ubicación o elija una ciudad de ejemplo para ver datos locales de la base de datos.",
+      "locationHeading": "Su zona",
+      "locationHint": "Comparta su ubicación para ver listados cercanos, o elija una ciudad abajo.",
+      "useMyLocation": "Usar mi ubicación",
+      "locating": "Buscando ubicación…",
+      "loadingListings": "Cargando listados locales…",
+      "loadError": "No se pudieron cargar los listados locales. Inténtelo de nuevo en un momento.",
+      "pickLocation": "Elija una ubicación para ver representantes, organizaciones y eventos.",
+      "noListings": "No hay listados para {{city}}, {{state}} todavía."
+    },
+    "politics": {
+      "title": "Política",
+      "placeholder": "Temas actuales y perspectivas neutrales aparecerán aquí."
+    },
+    "settings": {
+      "title": "Ajustes",
+      "placeholder": "Cuenta y preferencias aparecerán aquí.",
+      "intro": "Cree una cuenta para guardar su progreso al leer temas (almacenado en Supabase).",
+      "supabaseMissing": "Supabase no está configurado. Añada VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY al entorno del frontend.",
+      "loadingAuth": "Comprobando sesión…",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "signIn": "Iniciar sesión",
+      "signUp": "Crear cuenta",
+      "signOut": "Cerrar sesión",
+      "signedInAs": "Sesión iniciada como {{email}}",
+      "signedIn": "Sesión iniciada correctamente.",
+      "signedOut": "Sesión cerrada.",
+      "checkEmail": "Revise su correo para confirmar la cuenta, si su proyecto lo requiere."
+    }
+  },
+  "home": {
+    "greeting": {
+      "morning": "Buenos días",
+      "afternoon": "Buenas tardes",
+      "evening": "Buenas noches"
+    },
+    "tagline": "¿En qué puede ayudarle Civitas hoy?",
+    "chatPlaceholder": "Haga una pregunta cívica…",
+    "send": "Enviar",
+    "suggestedIntro": "Pruebe una de estas preguntas",
+    "questions": {
+      "q1": "¿Cuáles son mis derechos durante una detención policial?",
+      "q2": "¿Cómo me registro para votar en mi zona?",
+      "q3": "¿Quién es mi representante del concejo municipal?",
+      "q4": "¿Cuáles son mis derechos como inquilino?",
+      "q5": "¿Cómo asisto a una reunión del concejo municipal?",
+      "q6": "¿Cuáles son los principales temas políticos ahora?"
+    }
+  },
+  "chat": {
+    "sourceLink": "Abrir artículo",
+    "assistantLabel": "Civitas",
+    "errorGeneric": "Algo salió mal. Inténtelo de nuevo.",
+    "rateLimited": "Demasiadas solicitudes. Espere {{seconds}} segundos e inténtelo de nuevo.",
+    "rateLimitedGeneric": "Demasiadas solicitudes. Espere un momento e inténtelo de nuevo."
+  }
+}

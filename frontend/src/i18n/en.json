@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "mainNav": "Main navigation",
+    "home": "Home",
+    "topics": "Topics",
+    "rights": "Rights",
+    "getInvolved": "Get Involved",
+    "politics": "Politics",
+    "settings": "Settings",
+    "login": "Log in",
+    "openSettings": "Open settings"
+  },
+  "common": {
+    "appName": "Civitas"
+  },
+  "language": {
+    "menuLabel": "Language",
+    "searchPlaceholder": "Search languages"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "pages": {
+    "topics": {
+      "title": "Topics",
+      "placeholder": "Browse civic topics by category. Content will appear here.",
+      "intro": "Pick a category to see short lessons you can read in your language.",
+      "browseCategory": "Browse topics",
+      "topicCount": "{{count}} topics",
+      "loadingCategories": "Loading categories…",
+      "loadCategoriesError": "Could not load categories. Check that the API is running.",
+      "loadingTopics": "Loading topics…",
+      "loadTopicsError": "Could not load topics for this category.",
+      "categoryNotFound": "That category was not found.",
+      "backToCategories": "All categories",
+      "backToTopics": "Back to topic list",
+      "loadingTopic": "Loading topic…",
+      "loadTopicError": "Could not load this topic.",
+      "topicNotFound": "Topic not found.",
+      "unexpectedState": "Something went wrong. Go back to Topics from the menu.",
+      "sectionWhatItIs": "What it is",
+      "sectionWhyItMatters": "Why it matters",
+      "sectionWhatYouCanDo": "What you can do"
+    },
+    "rights": {
+      "title": "Rights",
+      "placeholder": "Know your rights. Content will appear here."
+    },
+    "getInvolved": {
+      "title": "Get Involved",
+      "placeholder": "Local representatives, organizations, and events will appear here.",
+      "intro": "Use your location or pick a sample city to see civic listings from the database.",
+      "locationHeading": "Your area",
+      "locationHint": "Share your location to see nearby listings, or pick a city below.",
+      "useMyLocation": "Use my location",
+      "locating": "Finding location…",
+      "loadingListings": "Loading local listings…",
+      "loadError": "Could not load local listings. Try again in a moment.",
+      "pickLocation": "Choose a location to see representatives, organizations, and events.",
+      "noListings": "No listings found for {{city}}, {{state}} yet."
+    },
+    "politics": {
+      "title": "Politics",
+      "placeholder": "Current issues and neutral perspectives will appear here."
+    },
+    "settings": {
+      "title": "Settings",
+      "placeholder": "Account and preferences will appear here.",
+      "intro": "Create an account to save progress as you read topics (stored in Supabase).",
+      "supabaseMissing": "Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your frontend environment.",
+      "loadingAuth": "Checking session…",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign in",
+      "signUp": "Create account",
+      "signOut": "Sign out",
+      "signedInAs": "Signed in as {{email}}",
+      "signedIn": "Signed in successfully.",
+      "signedOut": "Signed out.",
+      "checkEmail": "Check your email to confirm your account, if required by your project."
+    }
+  },
+  "home": {
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening"
+    },
+    "tagline": "How can Civitas help you today?",
+    "chatPlaceholder": "Ask a civic question…",
+    "send": "Send",
+    "suggestedIntro": "Try one of these questions",
+    "questions": {
+      "q1": "What are my rights during a police stop?",
+      "q2": "How do I register to vote in my area?",
+      "q3": "Who is my city council representative?",
+      "q4": "What are my rights as a tenant?",
+      "q5": "How do I attend a city council meeting?",
+      "q6": "What are the main political issues right now?"
+    }
+  },
+  "chat": {
+    "sourceLink": "Open article",
+    "assistantLabel": "Civitas",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "rateLimited": "Too many requests. Please wait {{seconds}} seconds, then try again.",
+    "rateLimitedGeneric": "Too many requests. Please wait a moment, then try again."
+  }
+}
