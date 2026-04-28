@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Analytics } from "@vercel/analytics/react"
 
 import { PageTransition } from "@/components/layout/PageTransition"
 import { RootLayout } from "@/components/layout/RootLayout"
@@ -26,6 +27,7 @@ export default function App() {
           </Route>
         </Route>
       </Routes>
+      <Analytics />
     </BrowserRouter>
   )
 }
