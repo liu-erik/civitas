@@ -13,12 +13,16 @@ load_dotenv()
 
 
 def _cors_origins() -> list[str]:
-    env = os.getenv("ENV", "development").lower()
-    production = env in ("production", "prod")
-    if production:
-        origin = os.getenv("FRONTEND_ORIGIN", "").strip()
-        return [origin] if origin else []
-    return ["http://localhost:5173", "http://127.0.0.1:5173"]
+    origins = [
+        "https://civitas-two.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
+    origin = os.getenv("FRONTEND_ORIGIN", "").strip()
+    if origin:
+        origins.append(origin)
+    # Keep order stable while removing duplicates.
+    return list(dict.fromkeys(origins))
 
 
 app = FastAPI(
