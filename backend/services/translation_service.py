@@ -22,6 +22,7 @@ _LANG_NAMES = {
 }
 
 _JSON_FENCE_RE = re.compile(r"```(?:json)?\s*(\{.*?\})\s*```", re.DOTALL)
+_GENERIC_FENCE_RE = re.compile(r"```(?:\w+)?\s*(.*?)\s*```", re.DOTALL)
 
 
 def _target_language_name(code: str) -> str:
@@ -34,7 +35,20 @@ def _extract_json_object(text: str) -> dict[str, Any]:
     m = _JSON_FENCE_RE.search(raw)
     if m:
         raw = m.group(1)
+    else:
+        start = raw.find("{")
+        end = raw.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            raw = raw[start : end + 1]
     return json.loads(raw)
+
+
+def _strip_code_fences(text: str) -> str:
+    raw = text.strip()
+    m = _GENERIC_FENCE_RE.search(raw)
+    if m:
+        return m.group(1).strip()
+    return raw
 
 
 async def translate_chat_response(body: ChatResponseBody, language_code: str) -> ChatResponseBody:
@@ -80,24 +94,40 @@ async def translate_chat_response(body: ChatResponseBody, language_code: str) ->
 
     try:
         data = _extract_json_object(combined)
-        response = str(data.get("response", "")).strip()
-        sources_out: list[Source] = []
-        for item in data.get("sources") or []:
-            if not isinstance(item, dict):
-                continue
-            try:
-                sources_out.append(
-                    Source(
-                        title=str(item.get("title", "")).strip()[:500],
-                        url=str(item.get("url", "")).strip(),
-                        summary=str(item.get("summary", "")).strip()[:2000],
-                    )
+    except (json.JSONDecodeError, TypeError) as e:
+        # Fallback: if the model returns plain translated text instead of JSON,
+        # preserve translated response and keep source links from original body.
+        fallback_text = _strip_code_fences(combined)
+        if fallback_text:
+            logger.warning("translation returned non-JSON output; using text fallback")
+            return ChatResponseBody(response=fallback_text, sources=body.sources[:4])
+        logger.warning("translation JSON parse failed and fallback was empty: %s", e)
+        raise RuntimeError("translation output was empty") from e
+
+    response = str(data.get("response", "")).strip()
+    sources_out: list[Source] = []
+    for item in data.get("sources") or []:
+        if not isinstance(item, dict):
+            continue
+        try:
+            sources_out.append(
+                Source(
+                    title=str(item.get("title", "")).strip()[:500],
+                    url=str(item.get("url", "")).strip(),
+                    summary=str(item.get("summary", "")).strip()[:2000],
                 )
-            except Exception:
-                continue
-        if not response:
-            raise ValueError("empty translated response")
-        return ChatResponseBody(response=response, sources=sources_out[:4])
-    except (json.JSONDecodeError, ValueError, TypeError) as e:
-        logger.warning("translation JSON parse failed: %s", e)
-        raise RuntimeError("translation output was not valid JSON") from e
+            )
+        except Exception:
+            continue
+
+    if response:
+        return ChatResponseBody(
+            response=response, sources=(sources_out[:4] if sources_out else body.sources[:4])
+        )
+
+    fallback_text = _strip_code_fences(combined)
+    if fallback_text:
+        logger.warning("translation JSON missing response; using text fallback")
+        return ChatResponseBody(response=fallback_text, sources=body.sources[:4])
+
+    raise RuntimeError("translation output was empty")
