@@ -21,7 +21,7 @@ def _cors_origins() -> list[str]:
     origin = os.getenv("FRONTEND_ORIGIN", "").strip()
     if origin:
         origins.append(origin)
-    # Keep order stable while removing duplicates.
+    
     return list(dict.fromkeys(origins))
 
 
